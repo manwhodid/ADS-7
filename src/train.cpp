@@ -42,11 +42,10 @@ int Train::getLength() {
 
     while (cur != first) {
         len++;
-        countOp += 2;
         cur = cur->next;
     }
 
-    countOp += 2;
+    countOp = len * 2 + 2;
 
     return len;
 }
