@@ -28,23 +28,23 @@ void Train::addCar(bool light) {
 }
 
 int Train::getLength() {
-  if (first == nullptr) {
-    return 0;
-  }
+    countOp = 0;
 
-  int len = 1;
+    if (first == nullptr) {
+        return 0;
+    }
 
-  const Car* cur = first->next;
+    int len = 1;
 
-  countOp = 0;
+    Car* cur = first;
 
-  while (cur != first) {
-    len++;
-    countOp += 2;
-    cur = cur->next;
-  }
+    do {
+        cur = cur->next;
+        countOp += 2;
+        len++;
+    } while (cur != first);
 
-  return len;
+    return len - 1;
 }
 
 int Train::getOpCount() {
