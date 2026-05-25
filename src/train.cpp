@@ -40,12 +40,13 @@ int Train::getLength() {
 
     const Car* cur = first->next;
 
+    countOp += 2;
+
     while (cur != first) {
         len++;
+        countOp += 2;
         cur = cur->next;
     }
-
-    countOp = len * 2 + 2;
 
     return len;
 }
