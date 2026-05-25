@@ -28,7 +28,7 @@ int main() {
 
     // случайные лампочки
     for (int i = 0; i < n; i++) {
-      t3.addCar(rand() % 2);
+      t3.addCar(std::rand() % 2);
     }
 
     t1.getLength();
