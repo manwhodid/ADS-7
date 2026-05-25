@@ -10,8 +10,6 @@ void Train::addCar(bool light) {
     Car* newCar = new Car;
 
     newCar->light = light;
-    newCar->next = nullptr;
-    newCar->prev = nullptr;
 
     if (first == nullptr) {
         first = newCar;
@@ -19,12 +17,17 @@ void Train::addCar(bool light) {
         first->next = first;
         first->prev = first;
     } else {
-        Car* last = first->prev;
+        Car* cur = first;
 
+        while (cur->next != first) {
+            cur = cur->next;
+        }
+
+        cur->next = newCar;
+
+        newCar->prev = cur;
         newCar->next = first;
-        newCar->prev = last;
 
-        last->next = newCar;
         first->prev = newCar;
     }
 }
