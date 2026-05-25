@@ -34,7 +34,7 @@ int Train::getLength() {
         return 0;
     }
 
-    int len = 1;
+    int len = 0;
 
     const Car* cur = first;
 
@@ -44,7 +44,7 @@ int Train::getLength() {
         len++;
     } while (cur != first);
 
-    return len - 1;
+    return len;
 }
 
 int Train::getOpCount() {
