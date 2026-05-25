@@ -34,15 +34,17 @@ int Train::getLength() {
         return 0;
     }
 
-    int len = 0;
+    int len = 1;
 
-    const Car* cur = first;
+    const Car* cur = first->next;
 
-    do {
-        cur = cur->next;
-        countOp += 2;
+    while (cur != first) {
         len++;
-    } while (cur != first);
+        countOp += 2;
+        cur = cur->next;
+    }
+
+    countOp += 2;
 
     return len;
 }
