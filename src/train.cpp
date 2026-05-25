@@ -10,6 +10,8 @@ void Train::addCar(bool light) {
     Car* newCar = new Car;
 
     newCar->light = light;
+    newCar->next = nullptr;
+    newCar->prev = nullptr;
 
     if (first == nullptr) {
         first = newCar;
