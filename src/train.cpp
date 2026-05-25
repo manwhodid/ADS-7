@@ -36,7 +36,7 @@ int Train::getLength() {
 
     int len = 1;
 
-    Car* cur = first;
+    const Car* cur = first;
 
     do {
         cur = cur->next;
