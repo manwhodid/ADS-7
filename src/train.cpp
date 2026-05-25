@@ -7,24 +7,24 @@ Train::Train() {
 }
 
 void Train::addCar(bool light) {
-  Car* n = new Car;
+    Car* newCar = new Car;
 
-  n->light = light;
+    newCar->light = light;
 
-  if (first == nullptr) {
-    first = n;
-    n->next = n;
-    n->prev = n;
-    return;
-  }
+    if (first == nullptr) {
+        first = newCar;
 
-  Car* last = first->prev;
+        first->next = first;
+        first->prev = first;
+    } else {
+        Car* last = first->prev;
 
-  n->next = first;
-  n->prev = last;
+        newCar->next = first;
+        newCar->prev = last;
 
-  last->next = n;
-  first->prev = n;
+        last->next = newCar;
+        first->prev = newCar;
+    }
 }
 
 int Train::getLength() {
